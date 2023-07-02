@@ -1,0 +1,31 @@
+<button (click)="incrementCount()"> Increment Count</button>
+
+<br/>
+<br/>
+
+<button (click)="updateTodoList()"> Update List</button>
+
+<br/>
+<br/>
+
+
+Parent Component - 
+<br>
+<strong>Writable Signal</strong>
+Count: {{count()}}
+<br>
+<strong>Computed Signal</strong>
+DoubleCount: {{ doubleCount()}}
+<br>
+<br>
+
+<div *ngFor="let v of todoList()">
+{{ v.title }} {{ v.done }}
+</div>
+
+<br/>
+<br/>
+
+<!-- Angular will track the signal as a dependency of that component. When that signal is updated, Angular automatically marks the component to ensure it gets updated the next time change detection runs. -->
+<app-angular-signals-child [count]="count()" [todoList]="todoList()" [doubleCount]="doubleCount()"/>
+
